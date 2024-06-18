@@ -22,12 +22,12 @@ public class CityDataloader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Loading data...");
 
-        cityRepository.save(new City("Madrid", "Spain"));
-        cityRepository.save(new City("Barcelona", "Spain"));
-        cityRepository.save(new City("Paris", "France"));
-        cityRepository.save(new City("Berlin", "Germany"));
-        cityRepository.save(new City("London", "United Kingdom"));
-        cityRepository.save(new City("Catania", "Italy"));
+        cityRepository.save(new City("Madrid", "ES"));
+        cityRepository.save(new City("Barcelona", "ES"));
+        cityRepository.save(new City("Paris", "FR"));
+        cityRepository.save(new City("Berlin", "DE"));
+        cityRepository.save(new City("London", "UK"));
+        cityRepository.save(new City("Catania", "IT"));
 
     }
 }

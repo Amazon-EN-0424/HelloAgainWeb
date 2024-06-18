@@ -12,3 +12,8 @@ spring:
 
   profiles:
     active: load_demo_data
+
+
+server:
+  error:
+    include-stacktrace: never #    this removes the stack trace from the error message

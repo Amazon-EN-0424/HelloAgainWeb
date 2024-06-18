@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +38,27 @@ public class CityService {
     public City create(City city) {
         log.info("Request to create city: {}", city);
         return cityRepository.save(city);
+    }
+
+    @Transactional
+    public City updateCity(UUID id, City city) {
+        var cityToUpdate = cityRepository.findById(id).orElseThrow();
+        cityToUpdate.setName(city.getName());
+        cityToUpdate.setCountry(city.getCountry());
+        return cityRepository.save(cityToUpdate);
+    }
+
+    @Transactional
+    public City updateCityName(UUID id, String name) {
+        var cityToUpdate = cityRepository.findById(id).orElseThrow();
+        cityToUpdate.setName(name);
+        return cityRepository.save(cityToUpdate);
+    }
+
+    @Transactional
+    public void deleteCity(UUID id) {
+        log.info("Request to delete city with id: {}", id);
+        cityRepository.deleteById(id);
     }
 
 
